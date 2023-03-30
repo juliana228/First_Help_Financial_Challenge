@@ -2,8 +2,7 @@ const mongoose = require('mongoose');
 const { ModuleFilenameHelpers } = require('webpack');
 const dotenv = require('dotenv').config();
 
-const MONGO_URI =
-  'mongodb+srv://julianamorrelli28:Peted2288!@cluster0.vluz2oc.mongodb.net/?retryWrites=true&w=majority';
+const MONGO_URI = process.env.MONGO_URI_LINK;
 
 mongoose
   .connect(MONGO_URI, {
