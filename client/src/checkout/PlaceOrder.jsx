@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/checkoutStyle.css';
 import { useNavigate } from 'react-router-dom';
 
 export default function PlaceOrder({
@@ -7,23 +8,35 @@ export default function PlaceOrder({
   ticketSummary,
 }) {
   const navigate = useNavigate();
+
+  let formatting_options = {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 2,
+  };
+  let dollarString = new Intl.NumberFormat('en-US', formatting_options);
+  let serviceFees = 44.08 * totalNumberOfTickets;
+
+  let totalServiceFees = dollarString.format(serviceFees);
+
   return (
     <div className="placeOrder">
       <div className="checkoutTotal">
-        <h3>Total</h3>
-        <h3>{total}</h3>
+        <h2>Total</h2>
+        <h2>{total}</h2>
       </div>
       <div className="ticketBreakdown">
-        <h4>Tickets</h4>
+        <h3>Tickets</h3>
         {ticketSummary}
       </div>
       <div className="notesFromSeller">
-        <h4>Notes From the Venue</h4>
+        <h3>Important COVID-19 Notice:</h3>
         <p>
           Proof of at least one dose of COVID-19 vaccination for ages 5-11 and
           guest ages 12 and up will be required to show proof of two COVID-19
-          vaccine doses of one dose of the Johnson and Johnson vaccine. Masks
-          must be worn at all times.
+          vaccine doses of one dose of the Johnson and Johnson vaccine (for most
+          venues). Venue-specific COVID-19 protocols can be found on their
+          respective websites.
         </p>
       </div>
       <div className="fees">
@@ -32,18 +45,23 @@ export default function PlaceOrder({
           <p>Order Processing Fee</p>
         </div>
         <div className="feeRight">
-          <p>${44.08 * totalNumberOfTickets}</p>
+          <p>{totalServiceFees}</p>
           <p>$2.95</p>
         </div>
       </div>
-      <div className="deliveryMethod">
+      <div className="deliveryMethodPreview">
         <p>Mobile Entry</p>
         <p>Free</p>
       </div>
       <p>*All Sales Final - No Refunds</p>
-      <button className="placeOrder" onClick={() => navigate('/success')}>
-        Place Order
-      </button>
+      <div className="placeOrderButtonContainer">
+        <button
+          className="placeOrderButton"
+          onClick={() => navigate('/success')}
+        >
+          Place Order
+        </button>
+      </div>
     </div>
   );
 }

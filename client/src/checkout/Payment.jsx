@@ -1,10 +1,12 @@
 import React from 'react';
 
 export default function Payment() {
+  //basic form setup without specific functionality to handle real credit/debit card
+  //information (as detailed in instructions)
   return (
     <div className="payment">
-      <h4>Payment</h4>
-      <h5>Use Credit/Debit Card</h5>
+      <h2>Payment</h2>
+      <h3>Use Credit/Debit Card</h3>
       <p>
         Please fill out the following information as it relates to your
         credit/debit card.

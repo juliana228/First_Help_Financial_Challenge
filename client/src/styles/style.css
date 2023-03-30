@@ -1,9 +1,50 @@
-.showDetails {
+* {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+}
+body {
+  background-color: rgb(245, 248, 250);
+}
+
+.showDetails,
+.showPreviewDetails {
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   display: flex;
   justify-content: space-between;
-  border: 2px solid black;
+  position: relative;
+  /* border: 0.px solid black; */
   margin: 1rem;
   padding: 1rem;
+  border-radius: 1.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.showDetails::after {
+  /* content: ''; */
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s ease-in-out;
+}
+
+.showDetails:hover {
+  transform: scale(1.05, 1.05);
+}
+
+/* Fade in the pseudo-element with the bigger shadow */
+.showDetails:hover::after {
+  opacity: 1;
+}
+
+.showPreviewDetailsRight {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .ticketButtonContainer {
@@ -13,13 +54,127 @@
 
 .landingDiv {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
-.previewCartButton {
-  display: inline-block;
+.allShows {
+  width: 70%;
+}
+
+.previewCartButton,
+.checkoutButton,
+.placeOrderButton {
+  align-items: center;
+  appearance: none;
+  background-color: #fff;
+  border-radius: 1.5rem;
+  border-style: none;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 3px 5px -1px,
+    rgba(0, 0, 0, 0.14) 0 6px 10px 0, rgba(0, 0, 0, 0.12) 0 1px 18px 0;
+  box-sizing: border-box;
+  color: #3c4043;
+  cursor: pointer;
+  display: inline-flex;
+  fill: currentcolor;
+  font-family: 'Google Sans', Roboto, Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  height: 3rem;
+  justify-content: center;
+  letter-spacing: 0.25px;
+  line-height: normal;
+  max-width: 100%;
+  overflow: visible;
+  padding: 0.125rem 1rem;
+  margin: 2rem;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 15ms linear 30ms, transform 270ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: auto;
+  will-change: transform, opacity;
+  z-index: 0;
+}
+
+.previewCartButton:hover,
+.checkoutButton:hover,
+.placeOrderButton:hover {
+  background: #f6f9fe;
+  color: #174ea6;
+}
+
+.previewCartButton:active {
+  box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%),
+    0 8px 12px 6px rgb(60 64 67 / 15%);
+  outline: none;
+}
+
+.previewCartButton:focus {
+  outline: none;
+  border: 2px solid #4285f4;
+}
+
+.previewCartButton:not(:disabled) {
+  box-shadow: rgba(60, 64, 67, 0.3) 0 1px 3px 0,
+    rgba(60, 64, 67, 0.15) 0 4px 8px 3px;
+}
+
+.previewCartButton:not(:disabled):hover {
+  box-shadow: rgba(60, 64, 67, 0.3) 0 2px 3px 0,
+    rgba(60, 64, 67, 0.15) 0 6px 10px 4px;
+}
+
+.previewCartButton:not(:disabled):focus {
+  box-shadow: rgba(60, 64, 67, 0.3) 0 1px 3px 0,
+    rgba(60, 64, 67, 0.15) 0 4px 8px 3px;
+}
+
+.previewCartButton:not(:disabled):active {
+  box-shadow: rgba(60, 64, 67, 0.3) 0 4px 4px 0,
+    rgba(60, 64, 67, 0.15) 0 8px 12px 6px;
+}
+
+.previewCartButton:disabled {
+  box-shadow: rgba(60, 64, 67, 0.3) 0 1px 3px 0,
+    rgba(60, 64, 67, 0.15) 0 4px 8px 3px;
 }
 
 .previewTotal {
   display: flex;
+  margin-left: 2rem;
+}
+
+.ticketButton {
+  background-color: rgb(246, 246, 246);
+  border: 1px solid rgb(209, 213, 219);
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  color: #111827;
+  font-family: 'Inter var', ui-sans-serif, system-ui, -apple-system, system-ui,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  /* padding: 0.75rem 1rem; */
+  text-align: center;
+  text-decoration: none #d1d5db solid;
+  text-decoration-thickness: auto;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.ticketButton:hover {
+  background-color: #e9f1ff;
+}
+
+.ticketButton:focus-visible {
+  box-shadow: none;
 }

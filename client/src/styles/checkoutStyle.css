@@ -1,0 +1,94 @@
+.deliveryMethod,
+.payment,
+.placeOrder {
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin: 0.5rem;
+  border-radius: 25px;
+}
+
+.checkoutContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+.deliveryMethod {
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+  padding: 1rem;
+}
+
+.deliveryMethod h2,
+.payment h2,
+.checkoutTotal h2 {
+  font-weight: 700;
+}
+
+.payment {
+  grid-column: 1 / 3;
+  grid-row: 2 / end;
+  padding: 1rem;
+}
+
+.placeOrder {
+  grid-column: 3 / end;
+  grid-row: 1 / end;
+  padding: 1rem;
+}
+
+.checkoutTotal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.checkoutTotal,
+.ticketBreakdon,
+.notesFromSeller,
+.fees,
+.deliveryMethodPreview {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.368);
+}
+
+.notesFromSeller,
+p {
+  font-size: 0.9rem;
+}
+
+.fees,
+.deliveryMethodPreview {
+  display: flex;
+  justify-content: space-between;
+}
+
+input,
+select {
+  /* border: none; */
+  border: 0.5px solid rgba(0, 0, 0, 0.155);
+  border-radius: 15px;
+  color: black;
+}
+
+.showTicketSummary {
+  display: flex;
+  justify-content: space-between;
+}
+
+.confirmationSuccess {
+  text-align: center;
+  margin-top: 20rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.confirmationSuccessTitle {
+  font-size: 3rem;
+}
+.confirmationSuccessMessage {
+  font-size: 1.2rem;
+}
+
+.placeOrderButtonContainer {
+  display: flex;
+  justify-content: center;
+}

@@ -28,9 +28,11 @@ export default function Landing(props) {
   }, [props]);
   return (
     <div className="landingDiv" key="landingDiv">
-      <div>{allShows}</div>
-      <div className="previewCartButton">
-        <button onClick={() => navigate('/cart')}>Preview Cart</button>
+      <div className="allShows">{allShows}</div>
+      <div className="previewCartButtonContainer">
+        <button className="previewCartButton" onClick={() => navigate('/cart')}>
+          Preview Cart
+        </button>
       </div>
     </div>
   );
