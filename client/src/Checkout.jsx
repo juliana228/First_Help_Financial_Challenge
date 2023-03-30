@@ -5,7 +5,12 @@ import DeliveryMethod from './checkout/DeliveryMethod';
 import Payment from './checkout/Payment';
 import PlaceOrder from './checkout/PlaceOrder';
 
-export default function Checkout({ props, totalTicketPrice }) {
+export default function Checkout({
+  props,
+  totalTicketPrice,
+  paymentInformation,
+  setPaymentInformation,
+}) {
   const ticketSummary = [];
   let totalNumberOfTickets = 0;
   if (props.shows.tickets) {
@@ -44,7 +49,10 @@ export default function Checkout({ props, totalTicketPrice }) {
   return (
     <div className="checkoutContainer">
       <DeliveryMethod />
-      <Payment />
+      <Payment
+        paymentInformation={paymentInformation}
+        setPaymentInformation={setPaymentInformation}
+      />
       <PlaceOrder
         totalNumberOfTickets={totalNumberOfTickets}
         total={total}

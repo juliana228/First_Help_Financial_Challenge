@@ -1,8 +1,18 @@
 import React from 'react';
 
-export default function Payment() {
+export default function Payment({ paymentInformation, setPaymentInformation }) {
   //basic form setup without specific functionality to handle real credit/debit card
   //information (as detailed in instructions)
+
+  //even though this form setup does not have the specific functionality to accept real payment information, I have supplied
+  //mock functionality here to save form data within state so that on submission, we have easy access to this data in order
+  //to use it for payment verification or any other backend processes.
+  const updatePaymentInformation = (event) => {
+    setPaymentInformation({
+      ...paymentInformation,
+      [event.target.name]: event.target.value,
+    });
+  };
   return (
     <div className="payment">
       <h2>Payment</h2>
@@ -13,18 +23,42 @@ export default function Payment() {
       </p>
       <form>
         <label>First Name: </label>
-        <input type="text"></input> <br />
+        <input
+          type="text"
+          name="firstName"
+          onChange={(e) => updatePaymentInformation(e)}
+        ></input>{' '}
+        <br />
         <label>Last Name: </label>
-        <input type="text"></input> <br />
+        <input
+          type="text"
+          name="lastName"
+          onChange={(e) => updatePaymentInformation(e)}
+        ></input>{' '}
+        <br />
         <label>Email Address: </label>
-        <input type="text"></input> <br />
+        <input
+          type="text"
+          name="email"
+          onChange={(e) => updatePaymentInformation(e)}
+        ></input>{' '}
+        <br />
         <label>Address: </label>
-        <input type="text"></input>
+        <input
+          type="text"
+          name="address"
+          onChange={(e) => updatePaymentInformation(e)}
+        ></input>
         <br />
         <label>City: </label>
-        <input type="text"></input> <br />
+        <input
+          type="text"
+          name="city"
+          onChange={(e) => updatePaymentInformation(e)}
+        ></input>{' '}
+        <br />
         <label>State: </label>
-        <select>
+        <select name="state" onChange={(e) => updatePaymentInformation(e)}>
           <option value="AL">Alabama</option>
           <option value="AK">Alaska</option>
           <option value="AZ">Arizona</option>
@@ -79,7 +113,7 @@ export default function Payment() {
         </select>{' '}
         <br />
         <label>Country: </label>
-        <select>
+        <select name="country" onChange={(e) => updatePaymentInformation(e)}>
           <option value="Afghanistan">Afghanistan</option>
           <option value="Åland Islands">Åland Islands</option>
           <option value="Albania">Albania</option>
@@ -371,18 +405,45 @@ export default function Payment() {
         </select>
         <br />
         <label>Zipcode: </label>
-        <input type="text"></input> <br /> <br />
+        <input
+          type="text"
+          name="zipcode"
+          onChange={(e) => updatePaymentInformation(e)}
+        ></input>{' '}
+        <br /> <br />
       </form>
 
       <form>
         <label>Name associated with card: </label>
-        <input type="text"></input> <br />
+        <input
+          type="text"
+          name="cardName"
+          onChange={(e) => updatePaymentInformation(e)}
+        ></input>{' '}
+        <br />
         <label>Card Number: </label>
-        <input type="text"></input> <br />
+        <input
+          type="text"
+          name="cardNumber"
+          onChange={(e) => updatePaymentInformation(e)}
+        ></input>{' '}
+        <br />
         <label>Expiration Date: </label>
-        <input type="text" placeholder="MM/YYYY"></input> <br />
+        <input
+          type="text"
+          placeholder="MM/YYYY"
+          name="expDate"
+          onChange={(e) => updatePaymentInformation(e)}
+        ></input>{' '}
+        <br />
         <label>Security Code</label>
-        <input type="text" placeholder="***"></input> <br />
+        <input
+          type="text"
+          placeholder="***"
+          name="securityCode"
+          onChange={(e) => updatePaymentInformation(e)}
+        ></input>{' '}
+        <br />
       </form>
     </div>
   );

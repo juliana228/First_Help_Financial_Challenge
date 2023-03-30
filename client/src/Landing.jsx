@@ -9,7 +9,6 @@ export default function Landing(props) {
 
   //execute a get request to pull show information from mongoDB
   const [allShows, setAllShows] = useState([]);
-  console.log('this is props: ', props);
   useEffect(() => {
     fetch('http://localhost:3000/')
       .then((data) => data.json())
@@ -18,7 +17,6 @@ export default function Landing(props) {
       .then((showData) => {
         //create JSX components for each show object
         const showInfo = showData.map((info) => {
-          //   console.log('this is artist: ', info[artist]);
           return (
             <ShowDetails showInfo={info} props={props} key={info.artist} />
           );

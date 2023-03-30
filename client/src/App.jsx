@@ -10,6 +10,20 @@ import SuccessPage from './SuccessPage';
 function App(props) {
   //we will use the useState hook to keep track of the totalTicketPrice
   const [totalTicketPrice, setTotalTicketPrice] = useState(0);
+  const [paymentInformation, setPaymentInformation] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    address: '',
+    city: '',
+    state: '',
+    country: '',
+    zipcode: '',
+    cardName: '',
+    cardNumber: '',
+    expDate: '',
+    securityCode: '',
+  });
   //app will be where we define the various routes that will be used through this app
   return (
     <Routes>
@@ -26,7 +40,14 @@ function App(props) {
       />
       <Route
         path="/checkout"
-        element={<Checkout props={props} totalTicketPrice={totalTicketPrice} />}
+        element={
+          <Checkout
+            props={props}
+            totalTicketPrice={totalTicketPrice}
+            paymentInformation={paymentInformation}
+            setPaymentInformation={setPaymentInformation}
+          />
+        }
       />
       <Route path="/success" element={<SuccessPage />} />
     </Routes>

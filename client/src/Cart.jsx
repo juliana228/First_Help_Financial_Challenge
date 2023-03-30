@@ -46,7 +46,9 @@ export default function Cart({ props, setTotalTicketPrice, totalTicketPrice }) {
           </div>
         </div>
       ) : (
-        <div>Cart Empty</div>
+        <div>
+          Cart Empty. Go back to grab those tickets before they're gone!
+        </div>
       )}
     </div>
   );
